@@ -1,0 +1,32 @@
+﻿.registerPageContainer {
+  height: 92vh;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .cardContainer {
+    margin: auto 0;
+    width: 100%;
+    
+  }
+  
+}
+
+@media screen and (max-width: 1440px) {
+  .registerPageContainer {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .registerPageContainer {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .registerPageContainer {
+    width: 100%;
+  }
+}
