@@ -4,10 +4,10 @@ import styles from './home-page.module.scss'
 
 import homePageBanner from '@/public/home-page/home-page-banner.jpg'
 import Image from "next/image";
-import {Button} from "@/components/ui/button";
-import {ArrowUpRight, ChartNetwork, ChevronsRight, HandCoins, TimerReset, User, Users} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight, ChartNetwork, ChevronsRight, HandCoins, TimerReset, User, Users } from "lucide-react";
 
-import {Card, CardContent} from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
@@ -16,7 +16,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 
-import {ICardData} from "@/interfaces/iImage";
+import { ICardData } from "@/interfaces/iImage";
 
 import firstProblemImg from '@/public/home-page/problems-section/1.jpg'
 import secondProblemImg from '@/public/home-page/problems-section/2.jpg'
@@ -31,6 +31,7 @@ import fifthFuncImg from '@/public/home-page/functions-section/5.jpg'
 import sixthFuncImg from '@/public/home-page/functions-section/6.jpg'
 import Link from "next/link";
 import Footer from "@/components/footer/footer";
+import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogTrigger } from '@/components/ui/alert-dialog';
 
 const problems: ICardData[] = [
   {
@@ -93,7 +94,7 @@ const Home = () => {
     <main className={`${styles.homePageContainer} mt-[7vh]`}>
       <section className={`${styles.bannerSection} h-96 overflow-hidden`}>
         <Image className={`${styles.bannerImg}  h-full object-cover`}
-               src={homePageBanner} alt="home-page-banner" loading='lazy' placeholder="blur" />
+          src={homePageBanner} alt="home-page-banner" loading='lazy' placeholder="blur" />
 
         <div className={'absolute top-0 h-full w-full bg-black opacity-30'}></div>
 
@@ -102,9 +103,20 @@ const Home = () => {
           <p className={'text-xl md:text-2xl w-3/4 '}>Optimizing support work and improving communication with the
             client
             through the introduction of AI Assistant</p>
-          <Button variant={'default'} className={'text-2xl p-6 text-foreground'}>
-            <Link href={'/chat/'} className={'flex text-2xl p-6'}>Try<ArrowUpRight className={'h-10'}/></Link>
-          </Button>
+          <div className='flex justify-center items-center gap-2 mt-4'>
+            <Button variant={'default'} className={'text-2xl p-6 text-foreground text-white'}>
+              <Link href={'/chat/'} className={'flex text-2xl p-6'}>Try<ArrowUpRight className={'h-10'} /></Link>
+            </Button>
+            <AlertDialog>
+              <AlertDialogTrigger>
+                <Button variant={'outline'} className={'text-2xl p-6 text-foreground'}>Book a DEMO</Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent className={'md:w-3/4 h-3/4 p-0 overflow-hidden rounded-2xl flex flex-col'} >
+                <iframe src="https://calendly.com/mike-helperhub/30min" className="w-full h-full border-none"></iframe>
+                <AlertDialogCancel className='m-2'>Cancel</AlertDialogCancel>
+              </AlertDialogContent>
+            </AlertDialog>
+          </div>
         </div>
       </section>
 
@@ -132,8 +144,8 @@ const Home = () => {
                     <CardContent className=" flex aspect-square items-center justify-center p-0 text-white">
                       <div className={'relative'}>
                         <Image className={'rounded-2xl'}
-                               src={problem.img} alt={problem.mainText} loading='lazy' placeholder="blur"
-                               unoptimized={true}/>
+                          src={problem.img} alt={problem.mainText} loading='lazy' placeholder="blur"
+                          unoptimized={true} />
                         <div className='absolute w-full inset-0 bg-black opacity-20 rounded-2xl'></div>
                       </div>
                       <div className={'absolute min-w-sm max-w-sm top-0 w-full p-4 mt-8 flex flex-col gap-8 '}>
@@ -145,12 +157,12 @@ const Home = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className={`${styles.carouselLeft}`}/>
-            <CarouselNext className={`${styles.carouselRight}`}/>
+            <CarouselPrevious className={`${styles.carouselLeft}`} />
+            <CarouselNext className={`${styles.carouselRight}`} />
           </Carousel>
 
           <div className={"flex justify-center items-center gap-1 mt-2 xm:hidden text-xl"}>Swipe <ChevronsRight
-            className={'h-8 self-center'}/></div>
+            className={'h-8 self-center'} /></div>
         </div>
       </section>
 
@@ -175,8 +187,8 @@ const Home = () => {
                     <CardContent className=" flex aspect-square items-center justify-center p-0 text-white">
                       <div className={'relative'}>
                         <Image className={'rounded-2xl'}
-                               src={problem.img} alt={problem.mainText} loading='lazy' placeholder="blur"
-                               unoptimized={true}/>
+                          src={problem.img} alt={problem.mainText} loading='lazy' placeholder="blur"
+                          unoptimized={true} />
                         <div className='absolute w-full inset-0 bg-black opacity-20 rounded-2xl'></div>
                       </div>
                       <div className={'absolute min-w-sm max-w-sm top-0 w-full p-4 mt-8 flex flex-col gap-8 '}>
@@ -188,12 +200,12 @@ const Home = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className={`${styles.carouselLeft}`}/>
-            <CarouselNext className={`${styles.carouselRight}`}/>
+            <CarouselPrevious className={`${styles.carouselLeft}`} />
+            <CarouselNext className={`${styles.carouselRight}`} />
           </Carousel>
 
           <div className={"flex justify-center items-center gap-1 mt-2 xm:hidden text-xl"}>Swipe <ChevronsRight
-            className={'h-8 self-center'}/></div>
+            className={'h-8 self-center'} /></div>
         </div>
       </section>
 
@@ -204,13 +216,13 @@ const Home = () => {
           <div className={"flex justify-center gap-8 md:w-3/5 mx-auto"}>
             <Card className={"w-1/2 bg-secondary"}>
               <CardContent className={"flex flex-col items-center mt-4"}>
-                <Users className={"size-20"}/>
+                <Users className={"size-20"} />
                 <h1 className={"text-xl font-semibold mt-4 sm:text-2xl"}>Reduced workload for employees</h1>
               </CardContent>
             </Card>
             <Card className={"w-1/2 bg-secondary"}>
               <CardContent className={"flex flex-col items-center mt-4"}>
-                <TimerReset className={"size-20"}/>
+                <TimerReset className={"size-20"} />
                 <h1 className={"text-xl font-semibold mt-4 sm:text-2xl"}>Reduced response time</h1>
               </CardContent>
             </Card>
@@ -219,13 +231,13 @@ const Home = () => {
           <div className={"flex justify-center gap-8 md:w-3/5 mx-auto"}>
             <Card className={"w-1/2 bg-secondary"}>
               <CardContent className={"flex flex-col items-center mt-4"}>
-                <ChartNetwork className={"size-20"}/>
+                <ChartNetwork className={"size-20"} />
                 <h1 className={"text-xl font-semibold mt-4 sm:text-2xl"}>Increased Efficiency and Accuracy</h1>
               </CardContent>
             </Card>
             <Card className={"w-1/2 bg-secondary"}>
               <CardContent className={"flex flex-col items-center mt-4"}>
-                <User className={"size-20"}/>
+                <User className={"size-20"} />
                 <h1 className={"text-xl font-semibold mt-4 sm:text-2xl"}>Increased customer satisfaction</h1>
               </CardContent>
             </Card>
@@ -234,7 +246,7 @@ const Home = () => {
           <div className={"flex justify-center gap-8 md:w-3/5 mx-auto"}>
             <Card className={"w-1/2 bg-secondary"}>
               <CardContent className={"flex flex-col items-center mt-4"}>
-                <HandCoins className={"size-20"}/>
+                <HandCoins className={"size-20"} />
                 <h1 className={"text-xl font-semibold mt-4 sm:text-2xl"}>Saving time and resources</h1>
               </CardContent>
             </Card>
@@ -249,10 +261,10 @@ const Home = () => {
           and customer experience, which will be a key competitive advantage for your company.
         </p>
         <Button variant={'outline'} className={'text-2xl p-6 text-foreground'}>
-          <Link href={'/chat'} className={'flex text-2xl p-6'}>Try<ArrowUpRight className={'h-10'}/></Link>
+          <Link href={'/chat'} className={'flex text-2xl p-6'}>Try<ArrowUpRight className={'h-10'} /></Link>
         </Button>
       </section>
-      <Footer/>
+      <Footer />
     </main>
   );
 };

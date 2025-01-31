@@ -24,6 +24,7 @@ import Link from "next/link";
 import ReCAPTCHA from "react-google-recaptcha";
 import useRecaptcha from "@/hooks/use-recaptcha";
 import {toast} from "@/hooks/use-toast";
+import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogTrigger } from '@/components/ui/alert-dialog';
 
 
 // Contact form schema
@@ -170,6 +171,15 @@ function Contacts() {
           <Link href={'tel:+380930860580'} className={`md:mt-20`}>
             <h1 className={`flex items-center`}><Phone className={`size-5 mr-1`}/>Phone: +380930860580</h1>
           </Link>
+          <AlertDialog>
+              <AlertDialogTrigger asChild className='w-52 mt-4'>
+                <Button variant={'outline'} className={'text-2xl p-6 text-foreground'}>Book a DEMO</Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent className={'md:w-3/4 h-3/4 p-0 overflow-hidden rounded-2xl flex flex-col'} >
+                <iframe src="https://calendly.com/mike-helperhub/30min" className="w-full h-full border-none"></iframe>
+                <AlertDialogCancel className='m-2'>Cancel</AlertDialogCancel>
+              </AlertDialogContent>
+            </AlertDialog>
         </section>
       </div>
      
